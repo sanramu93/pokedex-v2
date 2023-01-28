@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/variables.scss';
+
+body {
+  background: $clr-blue--900;
+  background: -webkit-linear-gradient(to left, $clr-blue--700, $clr-blue--800, $clr-blue--900);  
+  background: linear-gradient(to left, $clr-blue--700, $clr-blue--800, $clr-blue--900); 
+}
