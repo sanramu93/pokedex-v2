@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/scss/mormalize.scss",
               "src/styles.scss"
             ],
             "scripts": []
