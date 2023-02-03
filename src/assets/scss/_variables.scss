@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 // Colors : https://flowbite.com/docs/customize/colors/
 
 // COLORS
@@ -31,6 +33,7 @@ $clr-green--700: hsl(163, 93%, 22%);
 $clr-green--800: hsl(164, 93%, 17%);
 $clr-green--900: hsl(166, 97%, 14%);
 
+$clr-gray--50: hsl(100, 14%, 100%);
 $clr-gray--100: hsl(220, 14%, 96%);
 $clr-gray--200: hsl(220, 13%, 91%);
 $clr-gray--300: hsl(216, 12%, 84%);
@@ -40,3 +43,19 @@ $clr-gray--600: hsl(215, 14%, 34%);
 $clr-gray--700: hsl(217, 19%, 27%);
 $clr-gray--800: hsl(215, 28%, 17%);
 $clr-gray--900: hsl(221, 39%, 11%);
+
+// FONT FAMILY
+$ff-poppins: 'Poppins', sans-serif;
+
+// FONT WEIGHTS:
+$fw-thin: 300;
+$fw-normal: 400;
+$fw-bold: 600;
+
+// FONT SIZES:
+$fs-16: 1rem;
+$fs-20: 1.25rem;
+$fs-25: 1.563rem;
+$fs-31: 1.953rem;
+$fs-39: 2.441rem;
+$fs-48: 3.052rem;

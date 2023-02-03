@@ -1,1 +1,10 @@
 @import './assets/scss/variables.scss';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $ff-poppins;
+  font-size: $fs-25;
+}

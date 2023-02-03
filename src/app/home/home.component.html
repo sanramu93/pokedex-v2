@@ -1,9 +1,11 @@
-<section class="home">
-  <div class="logo">
-    <span>Logo</span>
-    <h4>Pokedex</h4>
-  </div>
-  <h1 class="title">Find your favorite Pokemon</h1>
-  <app-search-bar></app-search-bar>
-  <div *ngFor="let item of menuItems" class="menu-items">{{item}}</div>
-</section>
+<app-layout>
+  <section class="home">
+    <div class="logo">
+      <img class="pokeball" src="../../assets/img/pokeball-logo.png" alt="Poke-ball logo">
+      <h4>Pokedex</h4>
+    </div>
+    <h1 class="title">Find your <br/> favorite Pokemon</h1>
+    <app-search-bar></app-search-bar>
+    <div *ngFor="let item of menuItems" class="menu-items">{{item}}</div>
+  </section>
+</app-layout>
