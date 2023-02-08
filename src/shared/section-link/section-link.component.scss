@@ -1,0 +1,11 @@
+@import '../../assets/scss';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: $fw-bold;
+  padding: 2rem;
+  background-color: $clr-green-400;
+  border-radius: 4rem;
+}
