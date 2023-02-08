@@ -1,0 +1,30 @@
+@import '../../assets/scss';
+
+.container {
+  border: none;
+  display: flex;
+  background-color: $clr-white-400;
+  padding: 1.5rem 2rem;
+  border-radius: 4rem;
+
+  .search-bar-icon {
+    margin-right: 1rem;
+  }
+
+  .search-bar {
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    font-family: $ff-main;
+    font-size: $fs-normal;
+    color: $clr-gray-600;
+  }
+
+  .search-bar::placeholder {
+    color: $clr-gray-600;
+  }
+
+  .search-bar:focus {
+    outline: none;
+  }
+}
