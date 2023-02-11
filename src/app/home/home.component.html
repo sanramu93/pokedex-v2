@@ -5,18 +5,21 @@
         <img class="logo-img" src="../../assets/img/icons/pokeball-icon.svg" alt="Pokeball Icon">
         <h4 class="logo-text">Pokedex</h4>
       </div>
-      <h1 class="title">Find your favorite Pokemon</h1>
-      <div class="search-bar">
-        <app-search-bar></app-search-bar>
+      <div class="content-top">
+        <h1 class="title">Find your <br/> favorite Pokemon</h1>
+        <div class="search-bar">
+          <app-search-bar></app-search-bar>
+        </div>
       </div>
-      <div class="section-links">
+      <div class="content-bottom">
+      <div *ngFor="let link of sectionLinks" class="section-link">
         <app-section-link
-          [text]="'Types'"
-          [color]="'green'"
-          [icon]="'../../assets/img/icons/pokeball-icon.svg'"></app-section-link>
+          [text]="link.text"
+          [color]="link.color"
+          [icon]="link.iconPath"></app-section-link>
+      </div>
       </div>
     </div>
-    <div class="bg bg-red"></div>
-    <div class="bg bg-white"></div>
+    <div class="bg-white"></div>
   </section>
 </app-layout>

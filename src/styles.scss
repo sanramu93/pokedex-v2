@@ -6,8 +6,13 @@ html {
 }
 
 body {
-  background-color: $clr-white-400;
+  background-color: $clr-black-400;
   font-family: $ff-main;
   font-weight: $fw-normal;
   font-size: $fs-normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SECTION_LINKS } from './constants/section-links';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public menuItems = ['Types', 'Locations', ' Move and Abilities', 'Favorites'];
+  public sectionLinks = [...SECTION_LINKS];
 
   constructor() { }
 
