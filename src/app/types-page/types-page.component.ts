@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TYPE_TAGS } from './constants/type-tags';
 
 @Component({
   selector: 'app-types-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./types-page.component.scss']
 })
 export class TypesPageComponent implements OnInit {
+
+  public typeTags = [...TYPE_TAGS];
 
   constructor() { }
 

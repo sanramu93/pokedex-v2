@@ -1,4 +1,4 @@
-@import '../../assets/scss';
+@import '../../../../assets/scss';
 
 .content {
   padding: $pd-page-layout;
@@ -18,8 +18,3 @@
   }
 }
 
-.type-tags {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}

@@ -1,0 +1,41 @@
+@import '../../assets/scss';
+
+.container {
+  position: relative;
+  padding: 3rem;
+  overflow: hidden;
+  color: $clr-white-400;
+  border-radius: 6rem;
+  box-shadow: $bs-tag;
+  display: flex;
+  align-items: center;
+
+  img {
+    position: absolute;
+    right: 0;
+    max-width: 7.1rem;
+    opacity: 0.2;
+  }
+  h4 {
+    text-transform: capitalize;
+  }
+}
+
+.normal {background-color: $clr-normal-400;}
+.fire {background-color: $clr-fire-400;}
+.fighting {background-color: $clr-fighting-400;}
+.water {background-color: $clr-water-400;}
+.flying {background-color: $clr-flying-400;}
+.grass {background-color: $clr-grass-400;}
+.poison {background-color: $clr-poison-400;}
+.electric {background-color: $clr-electric-400;}
+.ground {background-color: $clr-ground-400;}
+.psychic {background-color: $clr-psychic-400;}
+.rock {background-color: $clr-rock-400;}
+.ice {background-color: $clr-ice-400;}
+.bug {background-color: $clr-bug-400;}
+.dragon {background-color: $clr-dragon-400;}
+.ghost {background-color: $clr-ghost-400;}
+.dark {background-color: $clr-dark-400;}
+.steel {background-color: $clr-steel-400;}
+.fairy {background-color: $clr-fairy-400;}

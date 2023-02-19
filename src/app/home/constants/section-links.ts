@@ -1,25 +1,25 @@
 export const SECTION_LINKS = [
   {
     text: 'Types',
-    color: '#A7DB8D',
+    color: 'types',
     iconPath: '../../assets/img/icons/pokeball-icon.svg',
     path: '/types'
   },
   {
     text: 'Locations',
-    color:'#F5AC78',
+    color:'locations',
     iconPath: '../../assets/img/icons/location-icon.svg',
     path: '/lcoations'
   },
   {
     text: 'Moves and Abilities',
-    color: '#9DB7F5',
+    color: 'moves',
     iconPath: '../../assets/img/icons/star-icon.svg',
     path: '/moves'
   },
   {
     text: 'Favorites',
-    color: '#FF5959',
+    color: 'favorites',
     iconPath: '../../assets/img/icons/heart-icon.svg',
     path: '/favorites'
   }

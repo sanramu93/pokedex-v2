@@ -1,5 +1,5 @@
 <app-layout>
-  <section class="types">
+  <section class="type">
     <div class="content">
       <nav class="nav">
         <a routerLink="..">
@@ -8,19 +8,10 @@
             src="../../assets/img/icons/chevron-left.svg" 
             alt="Left arrow icon">         
         </a>
-        <h1>Types</h1>
+        <h1>{{typeName | titlecase}} Type</h1>
       </nav>
       <app-search-bar></app-search-bar>
-      <div class="type-tags">
-        <a 
-          *ngFor="let type of typeTags"
-          [routerLink]="type.text">
-          <app-type-tag
-            [text]="type.text"
-            [color]="type.color"
-            [iconPath]="type.iconPath"></app-type-tag>
-        </a>
-      </div>
+      <app-pokemon-card></app-pokemon-card>
     </div>
   </section>
 </app-layout>
