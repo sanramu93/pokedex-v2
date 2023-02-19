@@ -1,4 +1,7 @@
+@import '../../assets/scss';
+
 .container {
+  background-color: $clr-white-400;
   height: 100vh;
   max-width: 48rem;
   margin: 0 auto;
