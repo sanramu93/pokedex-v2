@@ -1,0 +1,30 @@
+@import '../../../assets/scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  
+  .pokemon-num {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    p {
+      padding: 0.2rem 1rem;
+      background-color: $clr-grass-400;
+      color: $clr-white-400;
+      border-radius: 2rem;
+    }
+  }
+  .pokemon-img {
+    max-width: 9rem;
+  }
+
+  .pokemon-name {
+    padding-block: 1rem;
+  }
+}
