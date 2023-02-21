@@ -12,16 +12,11 @@
       </nav>
       <app-search-bar></app-search-bar>
       <div class="card-container">
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
-        <app-pokemon-card></app-pokemon-card>
+        <app-pokemon-card
+          *ngFor="let pokemon of pokemonByType"
+          [id]="pokemon.id"
+          [name]="pokemon.name"
+          [imgUrl]="pokemon.sprites.front_default"></app-pokemon-card>
       </div>
     </div>
   </section>

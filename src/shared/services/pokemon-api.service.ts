@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 const BASE_URL = 'https://pokeapi.co/api/v2';
 
@@ -15,6 +15,13 @@ export class PokemonApiService {
   ) { }
 
   public getAllPokemonByType(typeId: number): Observable<any> {
-    return this.http.get<any>(`${BASE_URL}/type/${typeId}`);
+    return this.http.get<any>(`${BASE_URL}/type/${typeId}`)
+      .pipe(
+        map(res => res.pokemon),
+      );
+  }
+
+  public getPokemonByUrl(url: string) {
+    return this.http.get<any>(url);
   }
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="pokemon-num">
-    <p>#114</p>
+    <p>#{{id}}</p>
   </div>
-  <img class="pokemon-img" src="../../assets/img/pokemon/grass.png" alt="Grass Pokemon">
-  <p class="pokemon-name">Bulbasaur</p>
+  <img class="pokemon-img" [src]="imgUrl" [alt]="name | titlecase">
+  <p class="pokemon-name">{{name | titlecase}}</p>
 </div>
