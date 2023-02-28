@@ -9,7 +9,7 @@ export const SECTION_LINKS = [
     text: 'Locations',
     color:'locations',
     iconPath: '../../assets/img/icons/location-icon.svg',
-    path: '/lcoations'
+    path: '/locations'
   },
   {
     text: 'Moves and Abilities',

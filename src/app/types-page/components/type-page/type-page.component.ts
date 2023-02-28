@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 import { Type } from 'src/shared/enums/type-enum';
 import { PokemonApiService } from 'src/shared/services/pokemon-api.service';
 import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
@@ -11,9 +12,10 @@ import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
 })
 export class TypePageComponent implements OnInit {
 
+  public isLoading = false;
   public typeName: string;
-
   public pokemonByType: any[] = [];
+  public pokemonByTypeSorted: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +39,7 @@ export class TypePageComponent implements OnInit {
             this.getPokemonByUrl(pokemon.pokemon.url)
         );
       },
-      error: err => console.log(err)
+      error: err => console.log(err),
     })
   }
 
@@ -45,13 +47,13 @@ export class TypePageComponent implements OnInit {
     this.apiService.getPokemonByUrl(url)
     .subscribe({
       next: (newPokemon: any) => {
-        this.pokemonByType = [...this.pokemonByType, newPokemon];
-        console.log(this.pokemonByType.length)
+        this.pokemonByType.push(newPokemon);
+        
+        // TODO: Sort pokemon array only once
+        this.pokemonByType.sort((a,b) => a.id - b.id);
       },
-      error: err => console.log(err)
+      error: err => console.log(err),
     })
   }
-
-
 
 }
