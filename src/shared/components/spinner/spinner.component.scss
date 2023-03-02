@@ -1,15 +1,5 @@
-html, body {
-  height: 100%;
-}
-
-body {
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .spinner {
+  opacity: 0.5;
   animation: rotate 1.8s ease-in-out infinite;
 } 
 

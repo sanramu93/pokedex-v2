@@ -11,14 +11,16 @@
         <h1>{{typeName | titlecase}} Type</h1>
       </nav>
       <app-search-bar></app-search-bar>
-      <app-spinner *ngIf="isLoading; else cardContainer" class="spinner"></app-spinner>
+      <div class="spinner-container">
+        <app-spinner *ngIf="isLoading; else cardContainer" class="spinner"></app-spinner>
+      </div>
       <ng-template #cardContainer>
         <div class="card-container">
           <app-pokemon-card
             *ngFor="let pokemon of pokemonByType"
             [id]="pokemon.id"
             [name]="pokemon.name"
-            [imgUrl]="pokemon.sprites.front_default"></app-pokemon-card>
+            [imgUrl]="getPokemonSprite(pokemon)"></app-pokemon-card>
         </div>
       </ng-template>
     </div>
