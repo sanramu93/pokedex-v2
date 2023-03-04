@@ -1,7 +1,9 @@
-<div class="container">
-  <div class="pokemon-num">
-    <p>#{{id}}</p>
+<a [routerLink]="[id]">
+  <div class="container" [ngClass]="{'dp-none': !imgUrl}">
+    <div class="pokemon-num">
+      <p [class]="numColor">#{{id}}</p>
+    </div>
+    <img class="pokemon-img" [src]="imgUrl" [alt]="name | titlecase">
+    <p class="pokemon-name">{{name | titlecase}}</p>
   </div>
-  <img class="pokemon-img" [src]="imgUrl" [alt]="name | titlecase">
-  <p class="pokemon-name">{{name | titlecase}}</p>
-</div>
+</a>

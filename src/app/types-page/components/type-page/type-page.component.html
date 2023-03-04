@@ -8,7 +8,7 @@
             src="../../assets/img/icons/chevron-left.svg" 
             alt="Left arrow icon">         
         </a>
-        <h1>{{typeName | titlecase}} Type</h1>
+        <h1>{{type | titlecase}} Type</h1>
       </nav>
       <app-search-bar></app-search-bar>
       <div class="spinner-container">
@@ -20,7 +20,8 @@
             *ngFor="let pokemon of pokemonByType"
             [id]="pokemon.id"
             [name]="pokemon.name"
-            [imgUrl]="getPokemonSprite(pokemon)"></app-pokemon-card>
+            [imgUrl]="getPokemonSprite(pokemon)"
+            [type]="type"></app-pokemon-card>
         </div>
       </ng-template>
     </div>

@@ -12,7 +12,7 @@ import { PokemonApiService } from 'src/shared/services/pokemon-api.service';
 export class TypePageComponent implements OnInit {
 
   public isLoading = true;
-  public typeName: string;
+  public type: string;
   public pokemonByType: any[] = [];
 
   constructor(
@@ -21,8 +21,8 @@ export class TypePageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.typeName = this.route.snapshot.params['id'];
-    this.getAllPokemonByType(this.typeName);
+    this.type = this.route.snapshot.params['type'];
+    this.getAllPokemonByType(this.type);
   }
 
   public getPokemonSprite(pokemon: any) {
@@ -32,8 +32,8 @@ export class TypePageComponent implements OnInit {
     return sprite;
   }
 
-  private getAllPokemonByType(typeName: string) {
-    const typeEnumName = typeName.toUpperCase() as keyof typeof Type;
+  private getAllPokemonByType(type: string) {
+    const typeEnumName = type.toUpperCase() as keyof typeof Type;
 
     this.apiService.getAllPokemonByType(Type[typeEnumName])
     .pipe(

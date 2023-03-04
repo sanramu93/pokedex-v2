@@ -10,10 +10,13 @@ export class PokemonCardComponent implements OnInit {
   @Input() public name: string;
   @Input() public id: number;
   @Input() public imgUrl: string;
+  @Input() public type: string;
+  @Input() public numColor: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.numColor = `bg-${this.type}-400`;
   }
 
 }
