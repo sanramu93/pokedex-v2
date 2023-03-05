@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable,delay,forkJoin, map, mergeMap } from 'rxjs';
-import { Type } from 'src/shared/enums/type-enum';
-import { PokemonApiService } from 'src/shared/services/pokemon-api.service';
+import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
 
 @Component({
   selector: 'app-type-page',
@@ -17,7 +15,7 @@ export class TypePageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private apiService: PokemonApiService,
+    private dataService: PokemonDataService
   ) { }
 
   ngOnInit(): void {
@@ -25,35 +23,19 @@ export class TypePageComponent implements OnInit {
     this.getAllPokemonByType(this.type);
   }
 
-  public getPokemonSprite(pokemon: any) {
-    const sprite = pokemon.sprites.front_default;
-    const fallbackSprite = pokemon.sprites.other['official-artwork'].front_default;
-    if(!sprite) return fallbackSprite;
-    return sprite;
+  public getPokemonSprite(pokemon: any): string {
+    return this.dataService.getPokemonSprite(pokemon);
   }
 
   private getAllPokemonByType(type: string) {
-    const typeEnumName = type.toUpperCase() as keyof typeof Type;
-
-    this.apiService.getAllPokemonByType(Type[typeEnumName])
-    .pipe(
-      delay(1000),
-      map((pokemon:any) => pokemon.map((p:any) => p.pokemon.url)),
-      mergeMap( urls => forkJoin(this.getPokemonsByUrl(urls)))
-    )
+    this.dataService.getAllPokemonByType(type)
     .subscribe({
       next: pokemon => {
-        this.pokemonByType = pokemon.sort((a,b) => a.id - b.id);
+        this.pokemonByType = pokemon;
         this.isLoading = false;
-      }, 
+      } ,
       error: err => console.log(err)
-    })
+    });
   }
-
-  private getPokemonsByUrl(urls: string[]): Observable<any>[] {
-    return urls.map(url => this.apiService.getPokemonByUrl(url))
-  }
-
-
 
 }
