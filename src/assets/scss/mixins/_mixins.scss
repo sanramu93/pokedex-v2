@@ -1,13 +1,8 @@
 @import '../variables/index';
 
-@mixin pokedex-glass {
-  background: #C4C4C4;
-  box-shadow: 2px 2px 182px -9px rgba(196, 196, 196, 0.5);
-}
-
 @mixin container-layout {
   background-color: $clr-white-400;
-  max-width: 48rem;
+  max-width: 42rem;
   margin: 0 auto;
   overflow: hidden;
 }
