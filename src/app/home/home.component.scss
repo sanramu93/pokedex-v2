@@ -28,6 +28,7 @@
 
     &-img {
       margin-right: 1em;
+      rotate: -45deg;
     }
 
     &-text {
@@ -72,7 +73,7 @@
   bottom: -50%;
   width: 100%;
   height: 50%;
-  background-color: rgb(255, 255, 255);
+  background-color: $clr-white-400;
   border-radius: 50%;
   scale: 3;
 }

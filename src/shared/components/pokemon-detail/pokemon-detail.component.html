@@ -1,3 +1,14 @@
 <app-layout>
-  <h1>{{pokemon?.name | titlecase}}</h1>
+  <section class="pokemon-detail" [ngClass]="getBgColorClass(types)">
+    <div class="content">
+      <div class="logo">
+        <img class="logo-img" src="../../assets/img/icons/pokeball-icon.svg" alt="Pokeball Icon">
+        <h4 class="logo-name">{{pokemon?.name | titlecase}}</h4>
+        <h4 class="logo-id">#{{formatId(pokemon?.id)}}</h4>
+      </div>
+      <div class="content-top">
+      </div>
+    </div>
+    <div class="bg-white"></div>
+  </section>
 </app-layout>
