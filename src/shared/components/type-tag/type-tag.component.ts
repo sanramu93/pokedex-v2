@@ -11,9 +11,12 @@ export class TypeTagComponent implements OnInit {
   @Input() public text: string;
   @Input() public iconPath: string;
 
+  public bgColorClass: string;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.bgColorClass = `bg-${this.color}-400`
   }
 
 }

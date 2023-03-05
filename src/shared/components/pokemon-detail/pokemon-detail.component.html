@@ -7,9 +7,14 @@
           <h4 class="title-id">{{formatId(pokemon?.id)}}</h4>
         </div>
         <div class="content-top">
-          <app-spinner *ngIf="isLoading; else pokemonImg" class="spinner"></app-spinner>
-          <ng-template #pokemonImg>
+          <app-spinner *ngIf="isLoading; else pokemonInfo" class="spinner"></app-spinner>
+          <ng-template #pokemonInfo>
             <img class="pokemon-img" [src]="imgUrl" [alt]="pokemon?.name | titlecase">
+            <div class="type-badges">
+              <app-type-badge 
+                *ngFor="let type of types"
+                [type]="type"></app-type-badge>
+            </div>
           </ng-template>
         </div>
       </div>

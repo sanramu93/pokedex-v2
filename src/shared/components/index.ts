@@ -4,6 +4,7 @@ import { PokemonDetailComponent } from "./pokemon-detail/pokemon-detail.componen
 import { SearchBarComponent } from "./search-bar/search-bar.component";
 import { SectionLinkComponent } from "./section-link/section-link.component";
 import { SpinnerComponent } from "./spinner/spinner.component";
+import { TypeBadgeComponent } from "./type-badge/type-badge.component";
 import { TypeTagComponent } from "./type-tag/type-tag.component";
 
 export const SharedComponents: any = [
@@ -11,6 +12,7 @@ export const SharedComponents: any = [
   SearchBarComponent,
   SectionLinkComponent,
   TypeTagComponent,
+  TypeBadgeComponent,
   PokemonCardComponent,
   PokemonDetailComponent,
   SpinnerComponent

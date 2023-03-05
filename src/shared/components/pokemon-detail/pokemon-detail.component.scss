@@ -10,6 +10,10 @@
   padding: $pd-page-layout;
   height: 100vh;
 
+  .pokemon-img, .type-badges {
+    z-index: 1;
+  }
+
   .title {
     display: flex;
     align-items: center;
@@ -47,8 +51,14 @@
 
     .pokemon-img {
       image-rendering: pixelated;
-      z-index: 1;
       width: 28rem;
+    }
+
+    .type-badges {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      gap: 2rem;
     }
   }
 
