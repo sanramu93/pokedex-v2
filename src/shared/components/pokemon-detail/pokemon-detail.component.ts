@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { delay } from 'rxjs';
 import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
 
 @Component({
@@ -9,10 +10,13 @@ import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
 })
 export class PokemonDetailComponent implements OnInit {
 
+
+  public isLoading = true;
   public id: number;
   public typeParam: string;
   public types: string[];
   public pokemon: any;
+  public imgUrl: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +30,8 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   public formatId(id: number) {
-    return String(id).padStart(4, '0');
+    if(!id) return '';
+    return `# ${String(id).padStart(4, '0')}`;
   }
 
   public getBgColorClass(types: string[]) {
@@ -37,10 +42,13 @@ export class PokemonDetailComponent implements OnInit {
 
   private getPokemonById(id: number) {
     this.dataService.getPokemonById(id)
+    .pipe(delay(500))
     .subscribe({
       next: pokemon => {
         this.pokemon = pokemon;
         this.types = this.pokemon.types.map((type:any) => type.type.name);
+        this.imgUrl = this.dataService.getPokemonSprite(this.pokemon);
+        this.isLoading = false;
       },
       error: err => console.log(err)
     })

@@ -3,73 +3,51 @@
 .pokemon-detail {
   position: relative;
   height: 100%;
-  color: $clr-white-400;
+  color: $clr-black-400;
 }
 
 .content {
   padding: $pd-page-layout;
   height: 100vh;
 
-  &-top {
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: url('../../../assets/img/backgrounds/pokeball-bg.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .logo{
+  .title {
     display: flex;
     align-items: center;
 
     &-img {
-      margin-right: 1em;
-      rotate: -45deg;
+      margin-right: 2rem;
     }
 
     &-name {
       font-size: $fs-big;
       font-weight: $fw-bold;
       margin-right: 1rem;
+      max-width: 20rem;
     }
     &-id {
       font-size: $fs-normal;
-      font-weight: $fw-normal;
+      font-weight: $fw-bold;
     }
-
   }
 
-  .title {
-    font-size: $fs-huge;
-    font-weight: $fw-bold;
+  &-top {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../../../assets/img/backgrounds/pokeball-bg.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .pokemon-img {
+      image-rendering: pixelated;
+      z-index: 1;
+      min-width: 36rem;
+    }
   }
 
-  .search-bar {
-    margin-top: 0rem;
-  }
-
-  .section-link {
-    z-index: 1;
-  }
-
-  .section-link:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-  
-}
-
-.nav {
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  ul {
-    z-index: 1;
-  }
 }
 
 .bg-white {
@@ -78,6 +56,7 @@
   width: 100%;
   height: 50%;
   background-color: rgb(255, 255, 255);
+  opacity: 0.5;
   border-radius: 50%;
   scale: 3.5;
 }
