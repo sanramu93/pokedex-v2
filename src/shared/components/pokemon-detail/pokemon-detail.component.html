@@ -2,7 +2,7 @@
     <section class="pokemon-detail" [ngClass]="getBgColorClass(types)">
       <div class="content">
         <div *ngIf="!isLoading" class="title">
-          <img class="title-img" src="../../assets/img/icons/pokeball-icon.svg" alt="pokeball-icon">
+          <img class="title-img" src="./../../assets/img/icons/pokeball-icon.svg" alt="pokeball-icon">
           <h4 class="title-name">{{pokemon?.name | titlecase}}</h4>
           <h4 class="title-id">{{formatId(pokemon?.id)}}</h4>
         </div>

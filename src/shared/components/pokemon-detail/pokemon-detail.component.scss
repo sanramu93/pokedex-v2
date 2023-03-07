@@ -1,4 +1,4 @@
-@import '../../../assets/scss';
+@import './../../../assets/scss';
 
 .pokemon-detail {
   position: relative;
@@ -47,7 +47,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url('../../../assets/img/backgrounds/pokeball-bg.svg');
+    background: url('./../../../assets/img/backgrounds/pokeball-bg.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

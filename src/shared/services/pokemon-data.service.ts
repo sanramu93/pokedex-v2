@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, delay, forkJoin, map, mergeMap } from 'rxjs';
 import { PokemonApiService } from './pokemon-api.service';
-import { Type } from '../enums/type-enum';
+import { Type } from './../enums/type-enum';
 
 @Injectable({
   providedIn: 'root'
