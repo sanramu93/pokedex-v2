@@ -10,7 +10,10 @@
   padding: $pd-page-layout;
   height: 100vh;
 
-  .pokemon-img, .type-badges {
+  .pokemon-img, 
+  .type-badges,
+  .pokemon-tabs,
+  .pokemon-tab {
     z-index: 1;
   }
 
@@ -54,11 +57,39 @@
       width: 28rem;
     }
 
+    .pokemon-shadow {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      box-shadow: 0px 0px 100px 77px rgba(0,0,0,0.4);
+      position: absolute;
+    }
+
     .type-badges {
       display: flex;
       width: 100%;
       justify-content: center;
       gap: 2rem;
+    }
+  }
+
+  .pokemon-tabs {
+    color: $clr-black-400;
+    font-size: $fs-normal;
+    display: flex;
+    justify-content: center;
+
+    .pokemon-tab {
+      padding: 1rem 2rem;
+      border: none;
+      background-color: $clr-beige-400;
+    }
+
+    :first-child{
+      border-radius: 4rem 0 0 4rem;
+    }
+    :last-child {
+      border-radius: 0rem 4rem 4rem 0rem;
     }
   }
 

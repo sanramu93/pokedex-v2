@@ -9,6 +9,7 @@
         <div class="content-top">
           <app-spinner *ngIf="isLoading; else pokemonInfo" class="spinner"></app-spinner>
           <ng-template #pokemonInfo>
+            <div class="pokemon-shadow"></div>
             <img class="pokemon-img" [src]="imgUrl" [alt]="pokemon?.name | titlecase">
             <div class="type-badges">
               <app-type-badge 
@@ -16,6 +17,11 @@
                 [type]="type"></app-type-badge>
             </div>
           </ng-template>
+        </div>
+        <div class="pokemon-tabs" *ngIf="!isLoading">
+          <div class="pokemon-tab tab-selected about">About</div>
+          <div class="pokemon-tab status">Status</div>
+          <div class="pokemon-tab moves">Moves</div>
         </div>
       </div>
       <div class="bg-white"></div>
