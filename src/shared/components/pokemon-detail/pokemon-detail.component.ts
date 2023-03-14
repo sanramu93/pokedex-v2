@@ -17,6 +17,8 @@ export class PokemonDetailComponent implements OnInit {
   public types: string[];
   public pokemon: any;
   public imgUrl: string;
+  public pokemonTabs = ['about', 'status', 'moves'];
+  public selectedTab = this.pokemonTabs[0];
 
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +40,15 @@ export class PokemonDetailComponent implements OnInit {
     return types?.includes(this.typeParam) ? 
             `bg-${this.typeParam}-grad` : 
             `bg-${types?.[0]}-grad`;
+  }
+  public getTabColorClass(tab: string) {
+    if(tab !== this.selectedTab) return null;
+    return this.getBgColorClass(this.types);
+  }
+
+  public onTabChange(e: any) {
+    this.selectedTab = e.target.value;
+
   }
 
   private getPokemonById(id: number) {

@@ -18,11 +18,21 @@
             </div>
           </ng-template>
         </div>
-        <div class="pokemon-tabs" *ngIf="!isLoading">
-          <div class="pokemon-tab tab-selected about">About</div>
-          <div class="pokemon-tab status">Status</div>
-          <div class="pokemon-tab moves">Moves</div>
-        </div>
+        <fieldset class="pokemon-tabs" *ngIf="!isLoading">
+          <div 
+            *ngFor="let tab of pokemonTabs" class="pokemon-tab" 
+            [ngClass]="getTabColorClass(tab)">
+            <input 
+              (change)="onTabChange($event)" 
+              type="radio" 
+              [id]="tab" 
+              [value]="tab" 
+              name="pokemon-tab">
+            <label 
+              [ngClass]="{'tab-label-selected': tab === selectedTab}" 
+              [for]="tab">{{tab | titlecase}}</label>
+          </div>
+      </fieldset>
       </div>
       <div class="bg-white"></div>
     </section>

@@ -54,7 +54,8 @@
 
     .pokemon-img {
       image-rendering: pixelated;
-      width: 28rem;
+      width: 32rem;
+      height: 32rem;
     }
 
     .pokemon-shadow {
@@ -83,6 +84,18 @@
       padding: 1rem 2rem;
       border: none;
       background-color: $clr-beige-400;
+
+      label {
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+    }
+
+    .tab-label-selected {
+      color: $clr-white-400;
     }
 
     :first-child{
