@@ -10,10 +10,7 @@
   padding: $pd-page-layout;
   height: 100vh;
 
-  .pokemon-img, 
-  .type-badges,
-  .pokemon-tabs,
-  .pokemon-tab {
+  :nth-child(n) {
     z-index: 1;
   }
 

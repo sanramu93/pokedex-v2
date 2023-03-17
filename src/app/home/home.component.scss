@@ -11,6 +11,10 @@
   padding: $pd-page-layout;
   height: 100vh;
 
+  :nth-child(n) {
+    z-index: 1;
+  }
+
   &-top {
     height: 50%;
     display: flex;
@@ -47,10 +51,6 @@
     margin-top: 0rem;
   }
 
-  .section-link {
-    z-index: 1;
-  }
-
   .section-link:not(:last-child) {
     margin-bottom: 1rem;
   }
@@ -62,10 +62,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  ul {
-    z-index: 1;
-  }
 }
 
 .bg-white {
