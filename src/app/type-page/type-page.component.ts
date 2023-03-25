@@ -32,6 +32,7 @@ export class TypePageComponent implements OnInit {
     .subscribe({
       next: pokemon => {
         this.pokemonByType = pokemon;
+        this.dataService.savePokemonByType(this.pokemonByType);
         this.isLoading = false;
       } ,
       error: err => console.log(err)

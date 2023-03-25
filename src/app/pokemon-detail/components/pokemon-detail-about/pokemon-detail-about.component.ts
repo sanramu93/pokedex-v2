@@ -31,7 +31,6 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
       .subscribe(
         res => {
           this.pokemon = res;
-          console.log(this.pokemon);
         }
       );
   }
@@ -42,17 +41,21 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
       .subscribe(
         (res: any) => {
           this.pokemonDescription = res;
-          // const descriptionText =
-          //    res.flavor_text_entries[0].flavor_text.replace(/\n/g, ' ');
-          // this.pokemonDescription = this.cleanDescription(descriptionText);
-          console.log(this.pokemonDescription);
+          const englishFlavortTexts = this.getFlavorTextsByLanguage(res?.flavor_text_entries);
+          this.pokemonFlavorText = englishFlavortTexts?.[0].flavor_text;
+          this.pokemonFlavorText = this.cleanFlavorText(this.pokemonFlavorText);
         });
   }
 
-  public cleanFlavorText(description: string) {
+  private getFlavorTextsByLanguage(flavorTextEntries: any, lang = 'en') {
+    return flavorTextEntries?.filter((entry: any) => entry.language.name === lang)
+  }
+  
+
+  private cleanFlavorText(description: string) {
     return description
-          .replace('\n',' ')
-          .replace('\f','\n')
+          ?.replace('\n',' ')
+          ?.replace('\f','\n')
   }
 
   ngOnDestroy(): void {

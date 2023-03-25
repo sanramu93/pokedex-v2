@@ -58,7 +58,7 @@ export class PokemonDetailComponent implements OnInit {
     .subscribe({
       next: pokemon => {
         this.pokemon = pokemon;
-        this.dataService.pokemonDetail$.next(pokemon);
+        this.dataService.savePokemonDetail(pokemon);
         this.types = this.pokemon.types.map((type:any) => type.type.name);
         this.imgUrl = this.dataService.getPokemonSprite(this.pokemon);
         this.isLoading = false;
@@ -70,8 +70,8 @@ export class PokemonDetailComponent implements OnInit {
   private getPokemonDescriptionById(id: number) {
     this.dataService.getPokemonDescriptionById(id)
     .subscribe({
-      next: pokemonDesc => {
-        this.dataService.pokemonDescription$.next(pokemonDesc);
+      next: res => {
+        this.dataService.savePokemonDescription(res);
       },
       error: err => console.log(err)
     })
