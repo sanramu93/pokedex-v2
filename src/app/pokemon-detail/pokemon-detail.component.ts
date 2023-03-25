@@ -29,6 +29,7 @@ export class PokemonDetailComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.typeParam = this.route.snapshot.params['type'];
     this.getPokemonById(this.id);
+    this.getPokemonDescriptionById(this.id);
   }
 
   public formatId(id: number) {
@@ -57,9 +58,20 @@ export class PokemonDetailComponent implements OnInit {
     .subscribe({
       next: pokemon => {
         this.pokemon = pokemon;
+        this.dataService.pokemonDetail$.next(pokemon);
         this.types = this.pokemon.types.map((type:any) => type.type.name);
         this.imgUrl = this.dataService.getPokemonSprite(this.pokemon);
         this.isLoading = false;
+      },
+      error: err => console.log(err)
+    })
+  }
+
+  private getPokemonDescriptionById(id: number) {
+    this.dataService.getPokemonDescriptionById(id)
+    .subscribe({
+      next: pokemonDesc => {
+        this.dataService.pokemonDescription$.next(pokemonDesc);
       },
       error: err => console.log(err)
     })

@@ -26,4 +26,9 @@ export class PokemonApiService {
   public getPokemonById(id: number) {
     return this.http.get<any>(`${BASE_URL}/pokemon/${id}`);
   }
+
+  public getPokemonDescriptionById(id: number) {
+    return this.http.get<any>(`${BASE_URL}/pokemon-species/${id}`);
+  }
+
 }

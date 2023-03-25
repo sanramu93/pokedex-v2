@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, delay, forkJoin, map, mergeMap } from 'rxjs';
+import { Observable, delay, forkJoin, map, mergeMap, Subject } from 'rxjs';
 import { PokemonApiService } from './pokemon-api.service';
 import { Type } from './../enums/type-enum';
 
@@ -7,6 +7,9 @@ import { Type } from './../enums/type-enum';
   providedIn: 'root'
 })
 export class PokemonDataService {
+
+  public pokemonDetail$ = new Subject();
+  public pokemonDescription$ = new Subject();
 
   constructor(
     private apiService: PokemonApiService
@@ -21,6 +24,10 @@ export class PokemonDataService {
 
   public getPokemonById(id: number): Observable<any> {
     return this.apiService.getPokemonById(id);
+  }
+
+  public getPokemonDescriptionById(id: number): Observable<any> {
+    return this.apiService.getPokemonDescriptionById(id);
   }
 
   public getAllPokemonByType(type: string): Observable<any[]> {

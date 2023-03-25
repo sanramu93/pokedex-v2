@@ -18,22 +18,29 @@
             </div>
           </ng-template>
         </div>
-        <fieldset class="pokemon-tabs" *ngIf="!isLoading">
-          <div 
-            *ngFor="let tab of pokemonTabs" class="pokemon-tab" 
-            [ngClass]="getTabColorClass(tab)">
-            <input 
-              (change)="onTabChange($event)" 
-              type="radio" 
-              [id]="tab" 
-              [value]="tab" 
-              name="pokemon-tab">
-            <label 
-              [ngClass]="{'tab-label-selected': tab === selectedTab}" 
-              [for]="tab">{{tab | titlecase}}</label>
+        <div class="pokemon-tabs-container">
+          <fieldset class="pokemon-tabs" *ngIf="!isLoading">
+            <div 
+              *ngFor="let tab of pokemonTabs" class="pokemon-tab" 
+              [ngClass]="getTabColorClass(tab)">
+              <input 
+                (change)="onTabChange($event)" 
+                type="radio" 
+                [id]="tab" 
+                [value]="tab" 
+                name="pokemon-tab">
+              <label 
+                [ngClass]="{'tab-label-selected': tab === selectedTab}" 
+                [for]="tab">{{tab | titlecase}}</label>
+            </div>
+          </fieldset>
+          <div class="pokemon-tabs-detail" [ngSwitch]="selectedTab">
+            <app-pokemon-detail-about *ngSwitchCase="'about'"></app-pokemon-detail-about>
+            <app-pokemon-detail-status *ngSwitchCase="'status'"></app-pokemon-detail-status>
+            <app-pokemon-detail-moves *ngSwitchCase="'moves'"></app-pokemon-detail-moves>
           </div>
-      </fieldset>
+        </div>
       </div>
-      <div class="bg-white"></div>
+      <!-- <div class="bg-white"></div> -->
     </section>
 </app-layout>

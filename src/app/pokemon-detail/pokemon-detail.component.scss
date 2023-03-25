@@ -39,20 +39,22 @@
   }
 
   &-top {
-    height: 50%;
+    height: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url('./../../../assets/img/backgrounds/pokeball-bg.svg');
+    background: url('./../../assets/img/backgrounds/pokeball-bg.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
     .pokemon-img {
       image-rendering: pixelated;
-      width: 32rem;
-      height: 32rem;
+      width: 25rem;
+      height: 25rem;
+      object-fit: contain;
+      margin-bottom: 2rem;
     }
 
     .pokemon-shadow {
@@ -71,6 +73,10 @@
     }
   }
 
+  .pokemon-tabs-container {
+    width: 85%;
+    margin: 0 auto;
+  }
   .pokemon-tabs {
     color: $clr-black-400;
     font-size: $fs-normal;
@@ -78,9 +84,11 @@
     justify-content: center;
 
     .pokemon-tab {
+      width: 100%;
       padding: 1rem 2rem;
       border: none;
       background-color: $clr-beige-400;
+      text-align: center;
 
       label {
         cursor: pointer;
