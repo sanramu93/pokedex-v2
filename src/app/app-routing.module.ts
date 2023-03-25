@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TypesPageComponent } from './types-page/types-page.component';
 import { HomeComponent } from './home/home.component';
-import { TypePageComponent } from './types-page/components/type-page/type-page.component';
+import { TypePageComponent } from './type-page/type-page.component';
 import { PokemonDetailComponent } from 'src/app/pokemon-detail/pokemon-detail.component';
 
 const routes: Routes = [
