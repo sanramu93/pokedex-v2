@@ -8,6 +8,7 @@ import { SharedModule } from 'src/shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { TypesPageComponent } from './types-page/types-page.component';
 import { TypePageComponent } from './types-page/components/type-page/type-page.component';
+import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { TypePageComponent } from './types-page/components/type-page/type-page.c
     HomeComponent,
     TypesPageComponent,
     TypePageComponent,
+    PokemonDetailComponent
   ],
   imports: [
     BrowserModule,
