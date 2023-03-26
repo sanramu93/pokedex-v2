@@ -1,0 +1,19 @@
+@import './../../../../assets/scss';
+
+.about-description {
+  font-style: italic;
+  font-weight: $fw-light;
+  line-height: 1.2em;
+  margin-bottom: 2rem;
+}
+
+.about-measures {
+  display: grid;
+  row-gap: 1rem;
+  margin-bottom: 3rem;
+  
+  div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
