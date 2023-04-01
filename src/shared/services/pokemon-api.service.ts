@@ -31,4 +31,8 @@ export class PokemonApiService {
     return this.http.get<any>(`${BASE_URL}/pokemon-species/${id}`);
   }
 
+  public getTypeInfo(typeId: number) {
+    return this.http.get<any>(`${BASE_URL}/type/${typeId}`);
+  }
+
 }

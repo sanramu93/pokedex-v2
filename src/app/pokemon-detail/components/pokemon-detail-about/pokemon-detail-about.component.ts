@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
 import { Subscription } from 'rxjs';
 
@@ -8,6 +8,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./pokemon-detail-about.component.scss']
 })
 export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
+
+  @Input() types: string[];
 
   public pokemonDetailSubs: Subscription;
   public pokemonDescriptionSubs: Subscription;
@@ -23,6 +25,7 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getPokemonDetail();
     this.getPokemonDescription();
+    console.log(this.types);
   }
 
   public getPokemonDetail() {

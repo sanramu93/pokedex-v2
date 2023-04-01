@@ -48,6 +48,10 @@ export class PokemonDataService {
     );
   }
 
+  public getTypeInfo(typeId: number): Observable<any> {
+    return this.apiService.getTypeInfo(typeId);
+  }
+
   public getAllPokemonByUrl(urls: string[]): Observable<any>[] {
     return urls.map(url => this.apiService.getPokemonByUrl(url))
   }

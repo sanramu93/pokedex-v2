@@ -18,13 +18,17 @@
   }
 }
 
-.about-strong-against {
-  display: flex;
+.about-strong-against,
+.about-weak-against {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .about-height-label,
 .about-weight-label,
-.about-strong-against {
+.about-strong-against,
+.about-weak-against {
   color: $clr-gray-600;
 }

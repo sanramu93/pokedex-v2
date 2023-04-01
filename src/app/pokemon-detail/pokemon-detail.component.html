@@ -38,7 +38,7 @@
             *ngIf="!isLoading" 
             class="pokemon-tabs-detail" 
             [ngSwitch]="selectedTab">
-            <app-pokemon-detail-about *ngSwitchCase="'about'"></app-pokemon-detail-about>
+            <app-pokemon-detail-about [types]="types" *ngSwitchCase="'about'"></app-pokemon-detail-about>
             <app-pokemon-detail-status *ngSwitchCase="'status'"></app-pokemon-detail-status>
             <app-pokemon-detail-moves *ngSwitchCase="'moves'"></app-pokemon-detail-moves>
           </div>
