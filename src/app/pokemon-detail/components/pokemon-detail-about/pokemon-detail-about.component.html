@@ -2,17 +2,18 @@
   <p class="about-description">{{pokemonFlavorText}}</p>
   <div class="about-measures">
     <div class="about-height">
-      <p>Height</p>
-      <p>{{pokemon?.height}}</p>
-      <p>{{pokemon?.height}}</p>
+      <p class="about-height-label">Height</p>
+      <p>{{pokemon?.height | foots}}</p>
+      <p>{{pokemon?.height | meters}}</p>
     </div>
     <div class="about-weight">
-      <p>Weight</p>
-      <p>{{pokemon?.weight}}</p>
-      <p>{{pokemon?.weight}}</p>
+      <p class="about-weight-label">Weight</p>
+      <p>{{pokemon?.weight | pounds}}</p>
+      <p>{{pokemon?.weight | kilograms}}</p>
     </div>
   </div>
   <div class="about-strong-against">
-    <p>Strong against</p>
+    <p class="about-strong-against-label">Strong against</p>
+    <app-type-badge-icon [type]="'fire'"></app-type-badge-icon>
   </div>
 </div>

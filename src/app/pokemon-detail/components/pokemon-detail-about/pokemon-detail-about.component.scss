@@ -17,3 +17,14 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.about-strong-against {
+  display: flex;
+  align-items: center;
+}
+
+.about-height-label,
+.about-weight-label,
+.about-strong-against {
+  color: $clr-gray-600;
+}
