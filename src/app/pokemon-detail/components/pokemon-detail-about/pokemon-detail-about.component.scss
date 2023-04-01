@@ -18,17 +18,15 @@
   }
 }
 
-.about-strong-against,
-.about-weak-against {
+.about-damage-relations {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  margin-bottom: 1rem;
+  row-gap: 1rem;
 }
 
+.about-damage-relations,
 .about-height-label,
-.about-weight-label,
-.about-strong-against,
-.about-weak-against {
+.about-weight-label {
   color: $clr-gray-600;
 }
