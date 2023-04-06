@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { delay } from 'rxjs';
+import { DamageRelations } from 'src/shared/models/damage-relations';
 import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class PokemonDetailComponent implements OnInit {
   public imgUrl: string;
   public pokemonTabs = ['about', 'status', 'moves'];
   public selectedTab = this.pokemonTabs[0];
+  public damageRelations: DamageRelations;
 
   constructor(
     private route: ActivatedRoute,
@@ -62,9 +64,17 @@ export class PokemonDetailComponent implements OnInit {
         this.types = this.pokemon.types.map((type:any) => type.type.name);
         this.imgUrl = this.dataService.getPokemonSprite(this.pokemon);
         this.isLoading = false;
+        this.getDamageRelations(this.types);
       },
       error: err => console.log(err)
     })
+  }
+
+  private getDamageRelations(types: string[]) {
+    this.dataService.getDamageRelations(types)
+    .subscribe(res => {
+      this.dataService.saveDamageRelations(res[0]);
+    });
   }
 
   private getPokemonDescriptionById(id: number) {

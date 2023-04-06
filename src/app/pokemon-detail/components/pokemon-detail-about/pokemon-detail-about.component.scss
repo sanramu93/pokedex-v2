@@ -22,7 +22,12 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  row-gap: 1rem;
+  row-gap: 2rem;
+  .strong-against,
+  .weak-against {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .about-damage-relations,

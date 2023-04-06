@@ -17,6 +17,9 @@ export class PokemonDataService {
   public pokemonDescription: any;
   public pokemonDescription$ = new BehaviorSubject(null);
 
+  public damageRelations: any;
+  public damageRelations$ = new BehaviorSubject(null);
+
   constructor(
     private apiService: PokemonApiService
   ) { }
@@ -48,8 +51,32 @@ export class PokemonDataService {
     );
   }
 
-  public getTypeInfo(typeId: number): Observable<any> {
-    return this.apiService.getTypeInfo(typeId);
+  public getTypeInfo(type: string): Observable<any> {
+    const typeEnumName = type.toUpperCase() as keyof typeof Type;
+    return this.apiService.getTypeInfo(Type[typeEnumName]);
+  }
+
+  public getAllTypesInfo(types: string[]): Observable<any> {
+    return forkJoin(types.map(type => this.getTypeInfo(type)));
+  }
+
+  public getDamageRelations(types: string[]): Observable<any> {
+    return this.getAllTypesInfo(types)
+    .pipe(
+      map(info => info.map(
+        (i: any )=> {
+          const strongAgainst =
+            i['damage_relations']['double_damage_to'].flat()
+            .map((i: any) => i['name']);
+
+          const weakAgainst =
+            i['damage_relations']['double_damage_from'].flat()
+            .map((i: any) => i['name']);
+            
+          return { strongAgainst, weakAgainst}
+        })
+      ),
+    )
   }
 
   public getAllPokemonByUrl(urls: string[]): Observable<any>[] {
@@ -69,5 +96,10 @@ export class PokemonDataService {
   public savePokemonDescription(pokemon: any) {
     this.pokemonDescription = pokemon;
     this.pokemonDescription$.next(this.pokemonDescription);
+  }
+
+  public saveDamageRelations(damageRelations: any) {
+    this.damageRelations = damageRelations;
+    this.damageRelations$.next(this.damageRelations);
   }
 }

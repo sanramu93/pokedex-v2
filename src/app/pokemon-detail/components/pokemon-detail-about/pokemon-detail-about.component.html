@@ -14,8 +14,16 @@
   </div>
   <div class="about-damage-relations">
     <p class="strong-against-label">Strong against</p>
-    <app-type-badge-icon [type]="'fire'"></app-type-badge-icon>
+    <div class="strong-against">
+      <app-type-badge-icon
+       *ngFor="let rel of damageRelations?.strongAgainst"
+       [type]="rel"></app-type-badge-icon>
+    </div>
     <p class="weak-against-label">Weak against</p>
-    <app-type-badge-icon [type]="'fire'"></app-type-badge-icon>
+    <div class="weak-against">
+      <app-type-badge-icon
+        *ngFor="let rel of damageRelations?.weakAgainst"
+        [type]="rel"></app-type-badge-icon>
+    </div>
   </div>
 </div>

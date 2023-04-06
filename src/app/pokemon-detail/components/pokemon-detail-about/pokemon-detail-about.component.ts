@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
 import { Subscription } from 'rxjs';
+import { DamageRelations } from 'src/shared/models/damage-relations';
 
 @Component({
   selector: 'app-pokemon-detail-about',
@@ -13,10 +14,12 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
 
   public pokemonDetailSubs: Subscription;
   public pokemonDescriptionSubs: Subscription;
+  public damageRelationsSubs: Subscription;
 
   public pokemon: any;
   public pokemonDescription: any;
   public pokemonFlavorText: string;
+  public damageRelations: any;
 
   constructor(
     private dataService: PokemonDataService
@@ -25,17 +28,13 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getPokemonDetail();
     this.getPokemonDescription();
-    console.log(this.types);
+    this.getDamageRelations();
   }
 
   public getPokemonDetail() {
     this.pokemonDetailSubs =
       this.dataService.pokemonDetail$
-      .subscribe(
-        res => {
-          this.pokemon = res;
-        }
-      );
+      .subscribe(res => this.pokemon = res);
   }
 
   public getPokemonDescription() {
@@ -53,8 +52,12 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
   private getFlavorTextsByLanguage(flavorTextEntries: any, lang = 'en') {
     return flavorTextEntries?.filter((entry: any) => entry.language.name === lang)
   }
-  
 
+  private getDamageRelations() {
+    this.damageRelationsSubs =
+      this.dataService.damageRelations$.subscribe(res => this.damageRelations = res);
+  }
+  
   private cleanFlavorText(description: string) {
     return description
           ?.replace('\n',' ')
@@ -64,6 +67,7 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.pokemonDetailSubs.unsubscribe();
     this.pokemonDescriptionSubs.unsubscribe();
+    this.damageRelationsSubs.unsubscribe();
   }
 
 }
