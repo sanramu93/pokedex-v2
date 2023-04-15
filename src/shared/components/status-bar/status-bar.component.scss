@@ -1,0 +1,18 @@
+.status-bar-container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-bottom: 1rem;
+}
+.bar-container {
+  background-color: aliceblue;
+  width: 100%;
+  display: flex;
+  .bar-fill {
+    width: 60%;
+    background-color: red;
+  }
+  .number {
+    position: absolute;
+    right: 0;
+  }
+}

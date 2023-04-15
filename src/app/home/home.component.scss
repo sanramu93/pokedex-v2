@@ -10,12 +10,10 @@
 .content {
   padding: $pd-page-layout;
   height: 100vh;
-
   :nth-child(n) {
     position: relative;
     z-index: 1;
   }
-
   &-top {
     height: 50%;
     display: flex;
@@ -26,37 +24,34 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+}
 
-  .logo{
-    display: flex;
-    align-items: center;
-
-    &-img {
-      margin-right: 2rem;
-      rotate: -45deg;
-    }
-
-    &-text {
-      font-size: $fs-big;
-      font-weight: $fw-bold;
-    }
-
+.logo {
+  display: flex;
+  align-items: center;
+  &-img {
+    margin-right: 2rem;
+    rotate: -45deg;
   }
-
-  .title {
-    font-size: $fs-huge;
+  &-text {
+    font-size: $fs-big;
     font-weight: $fw-bold;
   }
-
-  .search-bar {
-    margin-top: 0rem;
-  }
-
-  .section-link:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-  
 }
+
+.title {
+  font-size: $fs-huge;
+  font-weight: $fw-bold;
+}
+
+.search-bar {
+  margin-top: 0rem;
+}
+
+.section-link:not(:last-child) {
+  margin-bottom: 1rem;
+}
+  
 
 .nav {
   height: 50%;

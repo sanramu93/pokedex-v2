@@ -1,1 +1,6 @@
-<p>pokemon-detail-status works!</p>
+<app-status-bar 
+  *ngFor="let stat of status" 
+  class="status-bar"
+  [status]="stat"></app-status-bar>
+<hr>
+<pre>{{status | json}}</pre>

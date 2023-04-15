@@ -73,7 +73,7 @@ export class PokemonDetailComponent implements OnInit {
   private getDamageRelations(types: string[]) {
     this.dataService.getDamageRelations(types)
     .subscribe(res => {
-      this.dataService.saveDamageRelations(res[0]);
+      this.dataService.saveDamageRelations(res);
     });
   }
 

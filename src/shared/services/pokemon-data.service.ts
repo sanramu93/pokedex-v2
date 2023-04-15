@@ -63,20 +63,30 @@ export class PokemonDataService {
   public getDamageRelations(types: string[]): Observable<any> {
     return this.getAllTypesInfo(types)
     .pipe(
-      map(info => info.map(
-        (i: any )=> {
-          const strongAgainst =
-            i['damage_relations']['double_damage_to'].flat()
-            .map((i: any) => i['name']);
-
-          const weakAgainst =
-            i['damage_relations']['double_damage_from'].flat()
-            .map((i: any) => i['name']);
-            
-          return { strongAgainst, weakAgainst}
-        })
+      map(info =>  {
+          const strongAgainst: any[] = [];
+          const weakAgainst: any[] = [];
+          info.map(
+            (i: any) => {
+              strongAgainst.push(this.mapDamageRelation(i, true));
+              weakAgainst.push(this.mapDamageRelation(i, false));
+            }
+          );
+          return { 
+            strongAgainst: [...new Set(strongAgainst.flat())],
+             weakAgainst: [... new Set(weakAgainst.flat())]
+          }
+        }
       ),
     )
+  }
+
+  private mapDamageRelation(info: any, isStrong: boolean): [] {
+    let damageKey = 
+      isStrong ? 'double_damage_to' : 'double_damage_from';
+
+    return info['damage_relations'][damageKey].flat()
+            .map((info: any) => info['name']);
   }
 
   public getAllPokemonByUrl(urls: string[]): Observable<any>[] {
