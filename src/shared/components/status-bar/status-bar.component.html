@@ -1,9 +1,10 @@
 <div class="status-bar-container">
-  <h4 class="attribute">{{getStatusName()}}</h4>
+  <h4 class="attribute">{{getStatusName(status)}}</h4>
   <span class="bar-container">
     <div 
       class="bar-fill"
-      [ngStyle]="{'width': getStatusPercentage()}"></div>
+      [class]="getStatusBgClass(status)"
+      [ngStyle]="{'width': getStatusPercentage(status)}"></div>
     <div class="number">{{status['base_stat']}}</div>
   </span>
 </div>

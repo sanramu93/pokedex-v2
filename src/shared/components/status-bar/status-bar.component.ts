@@ -16,14 +16,20 @@ export class StatusBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public getStatusName() {
-    const statusEnumName = this.status.stat.name as keyof typeof StatusName;
+  public getStatusName(status: any) {
+    const statusEnumName = status.stat.name as keyof typeof StatusName;
     return StatusName[statusEnumName];
   }
 
-  public getStatusPercentage() {
-    const percentage = this.status['base_stat'] / MAX_STAT_VALUE * 100;
+  public getStatusPercentage(status: any) {
+    const percentage = status['base_stat'] / MAX_STAT_VALUE * 100;
     return  percentage.toFixed(2) + '%';
+  }
+
+  public getStatusBgClass(status: any) {
+    const statusEnumName = status.stat.name as keyof typeof StatusName;
+    const statusName = StatusName[statusEnumName].toLowerCase();
+    return `bg-${statusName}`;
   }
 
 }
