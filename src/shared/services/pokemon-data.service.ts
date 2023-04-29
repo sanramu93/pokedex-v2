@@ -51,6 +51,14 @@ export class PokemonDataService {
     );
   }
 
+  public getAllTypes(): Observable<any> {
+    return this.apiService.getAllTypes().pipe(
+      map(types => {
+        return types.results.filter(t => t.name !== 'unknown' && t.name !== 'shadow')
+      })
+    )
+  }
+
   public getTypeInfo(type: string): Observable<any> {
     const typeEnumName = type.toUpperCase() as keyof typeof Type;
     return this.apiService.getTypeInfo(Type[typeEnumName]);

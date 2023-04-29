@@ -12,14 +12,14 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
 
   @Input() types: string[];
 
-  public pokemonDetailSubs: Subscription;
-  public pokemonDescriptionSubs: Subscription;
-  public damageRelationsSubs: Subscription;
-
   public pokemon: any;
   public pokemonDescription: any;
   public pokemonFlavorText: string;
   public damageRelations: any;
+
+  private pokemonDetailSubs: Subscription;
+  private pokemonDescriptionSubs: Subscription;
+  private damageRelationsSubs: Subscription;
 
   constructor(
     private dataService: PokemonDataService
@@ -32,8 +32,7 @@ export class PokemonDetailAboutComponent implements OnInit, OnDestroy {
   }
 
   public getPokemonDetail() {
-    this.pokemonDetailSubs =
-      this.dataService.pokemonDetail$
+    this.pokemonDetailSubs = this.dataService.pokemonDetail$
       .subscribe(res => this.pokemon = res);
   }
 

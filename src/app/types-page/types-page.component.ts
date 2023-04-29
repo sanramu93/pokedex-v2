@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TYPE_TAGS } from './constants/type-tags';
+import { PokemonDataService } from 'src/shared/services/pokemon-data.service';
+import { Types } from 'src/shared/models/types';
+import { TypeTags } from 'src/shared/models/types';
 
 @Component({
   selector: 'app-types-page',
@@ -8,11 +10,31 @@ import { TYPE_TAGS } from './constants/type-tags';
 })
 export class TypesPageComponent implements OnInit {
 
-  public typeTags = [...TYPE_TAGS];
+  public typeTags: TypeTags[] = [];
 
-  constructor() { }
+  constructor(
+    private dataService: PokemonDataService
+  ) { }
 
   ngOnInit(): void {
+    this.getAllTypeTags();
+  }
+
+  private getAllTypeTags() {
+    this.dataService.getAllTypes().subscribe(
+      types => types.map(
+        (t: Types) => { 
+          this.typeTags.push(this.createTypeTag(t.name))
+      })
+    );
+  }
+
+  private createTypeTag(name: string) {
+   return {
+      text: name,
+      color: name,
+      iconPath: `assets/img/types/${name}.svg`
+    }
   }
 
 }
